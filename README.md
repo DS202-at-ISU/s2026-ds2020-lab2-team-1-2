@@ -93,4 +93,77 @@ the distribution of Sale Price is not uniform.
 
 ### Mariana’s Work:
 
+``` r
+sum(ames$YearBuilt == 0, na.rm = TRUE)
+```
+
+    ## [1] 1
+
+``` r
+range(ames$`YearBuilt`, na.rm = TRUE)
+```
+
+    ## [1]    0 2022
+
+``` r
+library(dplyr)
+```
+
+    ## 
+    ## Anexando pacote: 'dplyr'
+
+    ## Os seguintes objetos são mascarados por 'package:stats':
+    ## 
+    ##     filter, lag
+
+    ## Os seguintes objetos são mascarados por 'package:base':
+    ## 
+    ##     intersect, setdiff, setequal, union
+
+``` r
+ames_clean <- ames %>% filter(YearBuilt > 0)
+range(ames_clean$YearBuilt)
+```
+
+    ## [1] 1880 2022
+
+``` r
+ggplot(ames, aes(x = `YearBuilt`)) +
+  geom_histogram(binwidth = 5, position="stack") +
+  coord_cartesian(xlim = c(1880, 2022))
+```
+
+    ## Warning: Removed 447 rows containing non-finite outside the scale range
+    ## (`stat_bin()`).
+
+![](README_files/figure-gfm/code%201-1.png)<!-- -->
+
+It looks like there are more houses built on the second half of the
+range of the graph (1960-2022). It shows an average increase throughout
+the years.
+
+``` r
+ggplot(ames_clean, aes(x = YearBuilt, y = `Sale Price`)) +
+  geom_point()
+```
+
+![](README_files/figure-gfm/code%202-1.png)<!-- -->
+
+To better see the relationship, I adjusted the Sale Price axis.
+
+``` r
+ggplot(ames_clean, aes(x = YearBuilt, y = `Sale Price`)) +
+  geom_point() +
+  coord_cartesian(ylim = c(0, 750000))
+```
+
+![](README_files/figure-gfm/code%203-1.png)<!-- -->
+
+Generally, it seems like sales price increases with the year the house
+is built. So new houses in Ames generally have higher sale prices. The
+oddities seen in step 3 can be seen in the first plot, as some outlier
+values are seen for very high sale prices. These outliers are around
+year 2000, following the trend that newer houses usually have higher
+sale prices.
+
 ### Sebastian’s Work:
