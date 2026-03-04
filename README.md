@@ -116,7 +116,20 @@ plot(ames$`TotalLivingArea (sf)`, ames$`Sale Price`,
      col = "pink")
 ```
 
-![](README_files/figure-gfm/TotalLivingArea-2.png)<!-- -->
+![](README_files/figure-gfm/TotalLivingArea-2.png)<!-- --> Summary: The
+variable TotalLivingArea (sf) represents the total living space of a
+house in square feet. The values range from about 0 to around 6000
+square feet. The histogram shows that most houses have living areas
+between 1000 and 2000 square feet, with fewer houses having very large
+living areas. The distribution is slightly right-skewed because a small
+number of houses have much larger living areas.
+
+The scatterplot comparing TotalLivingArea and Sale Price does not show a
+clear positive trend because many houses have a Sale Price of 0, which
+creates a horizontal cluster of points near the bottom of the plot.
+These values are likely missing or incorrect data entries, which makes
+the relationship harder to see. If those values were removed, we would
+expect larger houses to generally have higher sale prices.
 
 ### Kalyna’s Work:
 
