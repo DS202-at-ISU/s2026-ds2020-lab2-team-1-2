@@ -71,7 +71,7 @@ range(ames$TotalLivingArea, na.rm = TRUE)
 hist(ames$TotalLivingArea,
      main = "Distribution of Total Living Area",
      xlab = "Total Living Area (square feet)",
-     col = "lightgreen")
+     col = "lightblue")
 ```
 
 ### Kalyna's Work:
