@@ -62,7 +62,15 @@ ggplot(ames, aes(x = `Sale Price`)) +
 The histogram shows that most of the data is concentrated on the left side of the graph, with some outliers on the right side. This shows that the distribution of Sale Price is not uniform.
 
 ## Step 4 Result
-### Chaitanya's Work:
+### Chaitanya's Work: 
+# check the range of TotalLivingArea
+range(ames$TotalLivingArea, na.rm = TRUE)
+
+# histogram of TotalLivingArea
+hist(ames$TotalLivingArea,
+     main = "Distribution of Total Living Area",
+     xlab = "Total Living Area (square feet)",
+     col = "lightgreen")
 
 
 ### Kalyna's Work:
