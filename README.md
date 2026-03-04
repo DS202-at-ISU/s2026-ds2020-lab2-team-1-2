@@ -89,14 +89,34 @@ the distribution of Sale Price is not uniform.
 
 ### Chaitanya’s Work:
 
-# check the range of TotalLivingArea
+``` r
+# range
+range(ames$`TotalLivingArea (sf)`, na.rm = TRUE)
+```
 
-range(ames\$TotalLivingArea, na.rm = TRUE)
+    ## [1]    0 6007
 
-# histogram of TotalLivingArea
+``` r
+# histogram
+hist(ames$`TotalLivingArea (sf)`,
+     main = "Distribution of Total Living Area",
+     xlab = "Total Living Area (sq ft)",
+     col = "lightblue")
+```
 
-hist(ames\$TotalLivingArea, main = “Distribution of Total Living Area”,
-xlab = “Total Living Area (square feet)”, col = “lightgreen”)
+![](README_files/figure-gfm/TotalLivingArea-1.png)<!-- -->
+
+``` r
+# scatterplot with Sale Price
+plot(ames$`TotalLivingArea (sf)`, ames$`Sale Price`,
+     main = "Sale Price vs Total Living Area",
+     xlab = "Total Living Area (sq ft)",
+     ylab = "Sale Price",
+     pch = 19,
+     col = "pink")
+```
+
+![](README_files/figure-gfm/TotalLivingArea-2.png)<!-- -->
 
 ### Kalyna’s Work:
 

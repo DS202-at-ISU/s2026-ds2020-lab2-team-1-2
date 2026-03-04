@@ -63,15 +63,21 @@ The histogram shows that most of the data is concentrated on the left side of th
 
 ## Step 4 Result
 ### Chaitanya's Work: 
-```{r range}
-# check the range of TotalLivingArea
-range(ames$TotalLivingArea, na.rm = TRUE)
-
-# histogram of TotalLivingArea
-hist(ames$TotalLivingArea,
+```{r TotalLivingArea}
+# range
+range(ames$`TotalLivingArea (sf)`, na.rm = TRUE)
+# histogram
+hist(ames$`TotalLivingArea (sf)`,
      main = "Distribution of Total Living Area",
-     xlab = "Total Living Area (square feet)",
+     xlab = "Total Living Area (sq ft)",
      col = "lightblue")
+# scatterplot with Sale Price
+plot(ames$`TotalLivingArea (sf)`, ames$`Sale Price`,
+     main = "Sale Price vs Total Living Area",
+     xlab = "Total Living Area (sq ft)",
+     ylab = "Sale Price",
+     pch = 19,
+     col = "pink")
 ```
 
 ### Kalyna's Work:
