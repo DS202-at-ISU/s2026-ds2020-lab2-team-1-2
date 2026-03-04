@@ -24,7 +24,7 @@ Submit a link to your repository on Canvas (only one submission per team) to sig
 ```{r}
 library(classdata)
 str(ames)
-?ames
+#?ames
 ```
 Variables in ames dataset:
 
@@ -49,8 +49,16 @@ Neighborhood: factor variable to indicate neighborhood (str)
 ## Step 2 Result
 Main variable: Sale Price. We will focus on this variable.
 
-
 ## Step 3 Result
+```{r range}
+data(ames)
+range(ames$`Sale Price`)
 
+library(ggplot2)
+ggplot(ames, aes(x = `Sale Price`)) +
+  geom_histogram(binwidth = 100000, position="stack")
+```
+
+The histogram shows that most of the data is concentrated on the left side of the graph, with some outliers on the right side. This shows that the distribution of Sale Price is not uniform.
 
 ## Step 4 Result
