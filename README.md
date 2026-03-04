@@ -21,6 +21,8 @@ you are done with your submission.
 
 ## Step 2 Result
 
+Main variable: Sale Price. We will focus on this variable.
+
 ## Step 3 Result
 
 ## Step 4 Result
