@@ -43,7 +43,7 @@ str(ames)
     ##  $ Neighborhood         : Factor w/ 42 levels "(0) None","(13) Apts: Campus",..: 15 40 19 18 6 24 14 40 13 23 ...
 
 ``` r
-?ames
+#?ames
 ```
 
 Variables in ames dataset:
@@ -65,5 +65,24 @@ fireplace? (bool) Neighborhood: factor variable to indicate neighborhood
 Main variable: Sale Price. We will focus on this variable.
 
 ## Step 3 Result
+
+``` r
+data(ames)
+range(ames$`Sale Price`)
+```
+
+    ## [1]        0 20500000
+
+``` r
+library(ggplot2)
+ggplot(ames, aes(x = `Sale Price`)) +
+  geom_histogram(binwidth = 100000, position="stack")
+```
+
+![](README_files/figure-gfm/range-1.png)<!-- -->
+
+The histogram shows that most of the data is concentrated on the left
+side of the graph, with some outliers on the right side. This shows that
+the distribution of Sale Price is not uniform.
 
 ## Step 4 Result
