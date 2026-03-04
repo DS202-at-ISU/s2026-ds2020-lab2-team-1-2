@@ -84,6 +84,24 @@ Summary: The variable TotalLivingArea (sf) represents the total living space of 
 The scatterplot comparing TotalLivingArea and Sale Price does not show a clear positive trend because many houses have a Sale Price of 0, which creates a horizontal cluster of points near the bottom of the plot. These values are likely missing or incorrect data entries, which makes the relationship harder to see. If those values were removed, we would expect larger houses to generally have higher sale prices.
 
 ### Kalyna's Work:
+```{r}
+data(ames)
+#Range
+range(ames$`FinishedBsmtArea (sf)`)
+
+library(ggplot2)
+#Histogram distribution
+ggplot(ames, aes(x = `FinishedBsmtArea (sf)`)) +
+geom_histogram(binwidth = 250)
+
+#Scatterplot comparison
+ggplot(ames, aes(x = `FinishedBsmtArea (sf)`, y = `Sale Price`)) +
+geom_point() +
+scale_x_continuous(labels = scales::label_number(accuracy = 1)) +
+scale_y_continuous(labels = scales::label_number(accuracy = 1)) +
+scale_y_continuous(limits = c(0, 1250000))
+```
+Summary: The variable FinishedBsmtArea (sf) shows the square footage of the basements of each home. The histogram distribution shows a peak at around 1000 sqare feet, with a few outliers around the 3500 and 6500 marks. The scatterplot shows that the two variables have a moderate positive correlation. There are a few noticeable outliers, and a "floor" of points, since many of the houses are listed at a sale price of 0.
 
 
 ### Mariana's Work:
@@ -119,17 +137,20 @@ The oddities seen in step 3 can be seen in the first plot, as some outlier value
 
 ### Sebastian's Work:
 I choose to work with the variable 'LotArea(sf)'.
-```{r}
-data(ames)
-range(ames$`LotArea(sf)`)
-
-library(ggplot2)
-ggplot(data = ames, aes(x = `Sale Price`, y = `LotArea(sf)`)) +
-  geom_point() +
-  labs(title = "Scatter Plot of Sale Price vs. LotArea(sf)",
-       x = "Sale Price",
-       y = "Lot Area (in square feet")
-
-
+```{r LotArea(sf)}
+# Range
+range(ames$`LotArea(sf)`, na.rm = TRUE)
+# Histogram
+hist(ames$`LotArea(sf)`,
+     main = "Distribution of Lot Area (by sq ft)",
+     xlab = "Lot Area (sq ft)",
+     col = "blue")
+# Scatterplot with Sale Price
+plot(ames$`LotArea(sf)`, ames$`Sale Price`,
+     main = "Lot Area vs Sale Price",
+     xlab = "Lot Area (in sq ft)",
+     ylab = "Sale Price",
+     pch = 19,
+     col = "green")
 ```
 

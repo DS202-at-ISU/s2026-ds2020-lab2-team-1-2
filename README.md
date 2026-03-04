@@ -133,6 +133,49 @@ expect larger houses to generally have higher sale prices.
 
 ### Kalyna’s Work:
 
+``` r
+data(ames)
+#Range
+range(ames$`FinishedBsmtArea (sf)`)
+```
+
+    ## [1] NA NA
+
+``` r
+library(ggplot2)
+#Histogram distribution
+ggplot(ames, aes(x = `FinishedBsmtArea (sf)`)) +
+geom_histogram(binwidth = 250)
+```
+
+    ## Warning: Removed 2682 rows containing non-finite outside the scale range
+    ## (`stat_bin()`).
+
+![](README_files/figure-gfm/unnamed-chunk-2-1.png)<!-- -->
+
+``` r
+#Scatterplot comparison
+ggplot(ames, aes(x = `FinishedBsmtArea (sf)`, y = `Sale Price`)) +
+geom_point() +
+scale_x_continuous(labels = scales::label_number(accuracy = 1)) +
+scale_y_continuous(labels = scales::label_number(accuracy = 1)) +
+scale_y_continuous(limits = c(0, 1250000))
+```
+
+    ## Scale for y is already present.
+    ## Adding another scale for y, which will replace the existing scale.
+
+    ## Warning: Removed 2682 rows containing missing values or values outside the scale range
+    ## (`geom_point()`).
+
+![](README_files/figure-gfm/unnamed-chunk-2-2.png)<!-- --> Summary: The
+variable FinishedBsmtArea (sf) shows the square footage of the basements
+of each home. The histogram distribution shows a peak at around 1000
+sqare feet, with a few outliers around the 3500 and 6500 marks. The
+scatterplot shows that the two variables have a moderate positive
+correlation. There are a few noticeable outliers, and a “floor” of
+points, since many of the houses are listed at a sale price of 0.
+
 ### Mariana’s Work:
 
 ``` r
@@ -213,22 +256,30 @@ sale prices.
 I choose to work with the variable ‘LotArea(sf)’.
 
 ``` r
-data(ames)
-range(ames$`LotArea(sf)`)
+# Range
+range(ames$`LotArea(sf)`, na.rm = TRUE)
 ```
 
-    ## [1] NA NA
+    ## [1]      0 523228
 
 ``` r
-library(ggplot2)
-ggplot(data = ames, aes(x = `Sale Price`, y = `LotArea(sf)`)) +
-  geom_point() +
-  labs(title = "Scatter Plot of Sale Price vs. LotArea(sf)",
-       x = "Sale Price",
-       y = "Lot Area (in square feet")
+# Histogram
+hist(ames$`LotArea(sf)`,
+     main = "Distribution of Lot Area (by sq ft)",
+     xlab = "Lot Area (sq ft)",
+     col = "blue")
 ```
 
-    ## Warning: Removed 89 rows containing missing values or values outside the scale range
-    ## (`geom_point()`).
+![](README_files/figure-gfm/LotArea(sf)-1.png)<!-- -->
 
-![](README_files/figure-gfm/unnamed-chunk-2-1.png)<!-- -->
+``` r
+# Scatterplot with Sale Price
+plot(ames$`LotArea(sf)`, ames$`Sale Price`,
+     main = "Lot Area vs Sale Price",
+     xlab = "Lot Area (in sq ft)",
+     ylab = "Sale Price",
+     pch = 19,
+     col = "green")
+```
+
+![](README_files/figure-gfm/LotArea(sf)-2.png)<!-- -->
