@@ -22,6 +22,7 @@ Submit a link to your repository on Canvas (only one submission per team) to sig
 
 
 ## Step 2 Result
+Main variable: Sale Price. We will focus on this variable.
 
 
 ## Step 3 Result
