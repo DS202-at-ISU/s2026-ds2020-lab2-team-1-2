@@ -89,6 +89,48 @@ the distribution of Sale Price is not uniform.
 
 ### Chaitanya’s Work:
 
+``` r
+# range
+range(ames$`TotalLivingArea (sf)`, na.rm = TRUE)
+```
+
+    ## [1]    0 6007
+
+``` r
+# histogram
+hist(ames$`TotalLivingArea (sf)`,
+     main = "Distribution of Total Living Area",
+     xlab = "Total Living Area (sq ft)",
+     col = "lightblue")
+```
+
+![](README_files/figure-gfm/TotalLivingArea-1.png)<!-- -->
+
+``` r
+# scatterplot with Sale Price
+plot(ames$`TotalLivingArea (sf)`, ames$`Sale Price`,
+     main = "Sale Price vs Total Living Area",
+     xlab = "Total Living Area (sq ft)",
+     ylab = "Sale Price",
+     pch = 19,
+     col = "pink")
+```
+
+![](README_files/figure-gfm/TotalLivingArea-2.png)<!-- --> Summary: The
+variable TotalLivingArea (sf) represents the total living space of a
+house in square feet. The values range from about 0 to around 6000
+square feet. The histogram shows that most houses have living areas
+between 1000 and 2000 square feet, with fewer houses having very large
+living areas. The distribution is slightly right-skewed because a small
+number of houses have much larger living areas.
+
+The scatterplot comparing TotalLivingArea and Sale Price does not show a
+clear positive trend because many houses have a Sale Price of 0, which
+creates a horizontal cluster of points near the bottom of the plot.
+These values are likely missing or incorrect data entries, which makes
+the relationship harder to see. If those values were removed, we would
+expect larger houses to generally have higher sale prices.
+
 ### Kalyna’s Work:
 
 ### Mariana’s Work:
@@ -167,3 +209,26 @@ year 2000, following the trend that newer houses usually have higher
 sale prices.
 
 ### Sebastian’s Work:
+
+I choose to work with the variable ‘LotArea(sf)’.
+
+``` r
+data(ames)
+range(ames$`LotArea(sf)`)
+```
+
+    ## [1] NA NA
+
+``` r
+library(ggplot2)
+ggplot(data = ames, aes(x = `Sale Price`, y = `LotArea(sf)`)) +
+  geom_point() +
+  labs(title = "Scatter Plot of Sale Price vs. LotArea(sf)",
+       x = "Sale Price",
+       y = "Lot Area (in square feet")
+```
+
+    ## Warning: Removed 89 rows containing missing values or values outside the scale range
+    ## (`geom_point()`).
+
+![](README_files/figure-gfm/unnamed-chunk-2-1.png)<!-- -->
