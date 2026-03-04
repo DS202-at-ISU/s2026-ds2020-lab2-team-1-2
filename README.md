@@ -94,3 +94,26 @@ the distribution of Sale Price is not uniform.
 ### Mariana’s Work:
 
 ### Sebastian’s Work:
+
+I choose to work with the variable ‘LotArea(sf)’.
+
+``` r
+data(ames)
+range(ames$`LotArea(sf)`)
+```
+
+    ## [1] NA NA
+
+``` r
+library(ggplot2)
+ggplot(data = ames, aes(x = `Sale Price`, y = `LotArea(sf)`)) +
+  geom_point() +
+  labs(title = "Scatter Plot of Sale Price vs. LotArea(sf)",
+       x = "Sale Price",
+       y = "Lot Area (in square feet")
+```
+
+    ## Warning: Removed 89 rows containing missing values or values outside the scale range
+    ## (`geom_point()`).
+
+![](README_files/figure-gfm/unnamed-chunk-2-1.png)<!-- -->

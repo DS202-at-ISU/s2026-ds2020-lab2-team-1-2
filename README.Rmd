@@ -72,3 +72,18 @@ The histogram shows that most of the data is concentrated on the left side of th
 
 
 ### Sebastian's Work:
+I choose to work with the variable 'LotArea(sf)'.
+```{r}
+data(ames)
+range(ames$`LotArea(sf)`)
+
+library(ggplot2)
+ggplot(data = ames, aes(x = `Sale Price`, y = `LotArea(sf)`)) +
+  geom_point() +
+  labs(title = "Scatter Plot of Sale Price vs. LotArea(sf)",
+       x = "Sale Price",
+       y = "Lot Area (in square feet")
+
+
+```
+
