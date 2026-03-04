@@ -140,22 +140,30 @@ expect larger houses to generally have higher sale prices.
 I choose to work with the variable ‘LotArea(sf)’.
 
 ``` r
-data(ames)
-range(ames$`LotArea(sf)`)
+# Range
+range(ames$`LotArea(sf)`, na.rm = TRUE)
 ```
 
-    ## [1] NA NA
+    ## [1]      0 523228
 
 ``` r
-library(ggplot2)
-ggplot(data = ames, aes(x = `Sale Price`, y = `LotArea(sf)`)) +
-  geom_point() +
-  labs(title = "Scatter Plot of Sale Price vs. LotArea(sf)",
-       x = "Sale Price",
-       y = "Lot Area (in square feet")
+# Histogram
+hist(ames$`LotArea(sf)`,
+     main = "Distribution of Lot Area (by sq ft)",
+     xlab = "Lot Area (sq ft)",
+     col = "blue")
 ```
 
-    ## Warning: Removed 89 rows containing missing values or values outside the scale range
-    ## (`geom_point()`).
+![](README_files/figure-gfm/LotArea(sf)-1.png)<!-- -->
 
-![](README_files/figure-gfm/unnamed-chunk-2-1.png)<!-- -->
+``` r
+# Scatterplot with Sale Price
+plot(ames$`LotArea(sf)`, ames$`Sale Price`,
+     main = "Lot Area vs Sale Price",
+     xlab = "Lot Area (in sq ft)",
+     ylab = "Sale Price",
+     pch = 19,
+     col = "green")
+```
+
+![](README_files/figure-gfm/LotArea(sf)-2.png)<!-- -->

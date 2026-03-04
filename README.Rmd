@@ -91,17 +91,20 @@ The scatterplot comparing TotalLivingArea and Sale Price does not show a clear p
 
 ### Sebastian's Work:
 I choose to work with the variable 'LotArea(sf)'.
-```{r}
-data(ames)
-range(ames$`LotArea(sf)`)
-
-library(ggplot2)
-ggplot(data = ames, aes(x = `Sale Price`, y = `LotArea(sf)`)) +
-  geom_point() +
-  labs(title = "Scatter Plot of Sale Price vs. LotArea(sf)",
-       x = "Sale Price",
-       y = "Lot Area (in square feet")
-
-
+```{r LotArea(sf)}
+# Range
+range(ames$`LotArea(sf)`, na.rm = TRUE)
+# Histogram
+hist(ames$`LotArea(sf)`,
+     main = "Distribution of Lot Area (by sq ft)",
+     xlab = "Lot Area (sq ft)",
+     col = "blue")
+# Scatterplot with Sale Price
+plot(ames$`LotArea(sf)`, ames$`Sale Price`,
+     main = "Lot Area vs Sale Price",
+     xlab = "Lot Area (in sq ft)",
+     ylab = "Sale Price",
+     pch = 19,
+     col = "green")
 ```
 
