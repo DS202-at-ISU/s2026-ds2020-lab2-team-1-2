@@ -62,3 +62,13 @@ ggplot(ames, aes(x = `Sale Price`)) +
 The histogram shows that most of the data is concentrated on the left side of the graph, with some outliers on the right side. This shows that the distribution of Sale Price is not uniform.
 
 ## Step 4 Result
+### Chaitanya's Work:
+
+
+### Kalyna's Work:
+
+
+### Mariana's Work:
+
+
+### Sebastian's Work:

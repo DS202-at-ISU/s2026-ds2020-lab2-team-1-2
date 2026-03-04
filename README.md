@@ -86,3 +86,11 @@ side of the graph, with some outliers on the right side. This shows that
 the distribution of Sale Price is not uniform.
 
 ## Step 4 Result
+
+### Chaitanya’s Work:
+
+### Kalyna’s Work:
+
+### Mariana’s Work:
+
+### Sebastian’s Work:
