@@ -195,13 +195,13 @@ library(dplyr)
 ```
 
     ## 
-    ## Anexando pacote: 'dplyr'
+    ## Attaching package: 'dplyr'
 
-    ## Os seguintes objetos são mascarados por 'package:stats':
+    ## The following objects are masked from 'package:stats':
     ## 
     ##     filter, lag
 
-    ## Os seguintes objetos são mascarados por 'package:base':
+    ## The following objects are masked from 'package:base':
     ## 
     ##     intersect, setdiff, setequal, union
 
@@ -256,6 +256,7 @@ sale prices.
 I choose to work with the variable ‘LotArea(sf)’.
 
 ``` r
+library(ggplot2)
 # Range
 range(ames$`LotArea(sf)`, na.rm = TRUE)
 ```
@@ -264,22 +265,44 @@ range(ames$`LotArea(sf)`, na.rm = TRUE)
 
 ``` r
 # Histogram
-hist(ames$`LotArea(sf)`,
-     main = "Distribution of Lot Area (by sq ft)",
-     xlab = "Lot Area (sq ft)",
-     col = "blue")
+ggplot(ames, aes(x = `LotArea(sf)`)) +
+  geom_histogram(binwidth = 30, position="stack") +
+  coord_cartesian(xlim = c(0, 50000))
 ```
+
+    ## Warning: Removed 89 rows containing non-finite outside the scale range
+    ## (`stat_bin()`).
 
 ![](README_files/figure-gfm/LotArea(sf)-1.png)<!-- -->
 
 ``` r
 # Scatterplot with Sale Price
-plot(ames$`LotArea(sf)`, ames$`Sale Price`,
-     main = "Lot Area vs Sale Price",
-     xlab = "Lot Area (in sq ft)",
-     ylab = "Sale Price",
-     pch = 19,
-     col = "green")
+ggplot(ames, aes(x = `LotArea(sf)`, y = `Sale Price`)) +
+geom_point() +
+scale_x_continuous(labels = scales::label_number(accuracy = 1)) +
+scale_y_continuous(labels = scales::label_number(accuracy = 1)) +
+scale_y_continuous(limits = c(0, 750000))
 ```
 
+    ## Scale for y is already present.
+    ## Adding another scale for y, which will replace the existing scale.
+
+    ## Warning: Removed 489 rows containing missing values or values outside the scale range
+    ## (`geom_point()`).
+
 ![](README_files/figure-gfm/LotArea(sf)-2.png)<!-- -->
+
+Summary: LotArea(sf) represents the total horizontal surface area within
+a property’s boundary lines in Ames, measured in square feet. The values
+range from about 0 to around 6000 square feet. The histogram shows that
+the vast majority of lot areas for homes in Ames are around 10000 (or
+less) square feet, with much fewer houses having very large lot areas
+(\>3000 sq ft). The distribution is right-skewed because of how little
+the number of houses with larger lot areas compare to those with lot
+areas around 10000 sq ft, which are concentrated to the left of the
+histogram.
+
+The scatterplot highlights how there are not many outliers in the first
+place, but there are a few with extremely large lot areas (a few
+measured between 200000 and 600000 sq ft, which are several acres of
+land).
