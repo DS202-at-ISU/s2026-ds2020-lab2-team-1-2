@@ -121,7 +121,8 @@ It looks like there are more houses built on the second half of the range of the
 
 ```{r code 2}
 ggplot(ames_clean, aes(x = YearBuilt, y = `Sale Price`)) +
-  geom_point()
+  geom_point() +
+  labs(title = "Sales Price by Year")
 ```
 
 To better see the relationship, I adjusted the Sale Price axis. 
