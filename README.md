@@ -229,7 +229,8 @@ the years.
 
 ``` r
 ggplot(ames_clean, aes(x = YearBuilt, y = `Sale Price`)) +
-  geom_point()
+  geom_point() +
+  labs(title = "Sales Price by Year")
 ```
 
 ![](README_files/figure-gfm/code%202-1.png)<!-- -->
